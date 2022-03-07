@@ -14,21 +14,20 @@ it = pyfirmata.util.Iterator(board)
 it.start()
 
 digital_output = board.get_pin('d:7:o')
+analog_input = board.get_pin('a:0:i')
 
 try:
     digital = aio.feeds('digital')
+    analog = aio.feeds('analog')
 except RequestError:
     feed = Feed(name='digital')
+    feed2 = Feed(name='analog')
     digital = aio.create_feed(feed)
+    analog = aio.create_feed(feed2)
 
 while True:
-    print('Sending count:', run_count)
-    run_count += 1
-    aio.send_data('counter', run_count)
-
     data = aio.receive(digital.key)
-
-    print('Data: ', data.value)
+    data2 = aio.send(analog.key, analog_input.read())
 
     if data.value == "ON":
         digital_output.write(True)
