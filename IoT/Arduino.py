@@ -2,7 +2,6 @@ import time
 from Adafruit_IO import Client, Feed, RequestError
 import pyfirmata
 
-run_count = 0
 ADAFRUIT_IO_USERNAME = "TobiasAndre"
 ADAFRUIT_IO_KEY = "aio_ykvq11nMbubLzljmo8pvxtpauy4Z"
 
