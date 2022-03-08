@@ -7,10 +7,13 @@ import pyfirmata
 ADAFRUIT_IO_USERNAME = ''
 ADAFRUIT_IO_KEY = ''
 
+# set the variable aio to be the adafruit client
 aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
+# setting the variable board to the com4 port with an arduino connected
 board = pyfirmata.Arduino('COM4')
 
+# starting board to be the communication board
 pyfirmata.util.Iterator(board).start()
 
 # make a digital_output variable for digital pin 7
