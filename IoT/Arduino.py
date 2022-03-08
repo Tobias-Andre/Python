@@ -13,14 +13,20 @@ board = pyfirmata.Arduino('COM4')
 
 pyfirmata.util.Iterator(board).start()
 
+# make a digital_output variable for digital pin 7
+# make an analog_input variable for analog pin 0
 digital_output = board.get_pin('d:7:o')
 analog_input = board.get_pin('a:0:i')
 
+# make variables for adafruit feeds
+# digital variable for digital feed
+# analog variable for analog feed
 digital = aio.feeds('digital')
 analog = aio.feeds('analog')
 
 # loop that reads the digital input from adafruit and writes it to the board
 # and the analog input from Arduino get written to adafruit
+# first try the loop except when ThrottlingError happens, if ThrottlingError happens print a message and wait for 61 seconds
 while True:
     try:
         data = aio.receive(digital.key)
@@ -33,5 +39,5 @@ while True:
         time.sleep(3)
     
     except ThrottlingError:
-        print("your pore")
-        time.sleep(65)
+        print("*Dead*")
+        time.sleep(61)
