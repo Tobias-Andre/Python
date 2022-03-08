@@ -4,8 +4,8 @@ from Adafruit_IO import Client, Feed, RequestError, ThrottlingError
 import pyfirmata
 
 # adafruit dashboard info
-ADAFRUIT_IO_USERNAME = "TobiasAndre"
-ADAFRUIT_IO_KEY = "aio_ykvq11nMbubLzljmo8pvxtpauy4Z"
+ADAFRUIT_IO_USERNAME = ''
+ADAFRUIT_IO_KEY = ''
 
 aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
